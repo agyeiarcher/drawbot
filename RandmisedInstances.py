@@ -10,39 +10,44 @@ fontName = installFont(path)
 x, y, w, h = 0, 0, CARDWIDTH, CARDHEIGHT
 
 fill(1)
+rect(0, 0, CARDWIDTH, CARDHEIGHT)
 
-font("fontName")
 fill(0)
 
 txtFontSize=106
 
 txt = FormattedString(fontSize=txtFontSize)
 
-#set text width
-txt.fontVariations(wdth=266) 
+txt.fontVariations(wdth=266)
+
+#set initial value
+
+txt.align ="center"
+startvariable=randint(0,1000)
+txt.fontVariations(wght=startvariable)
 
 #'manually' refresh startvariable value each time and append to textBox
 
+txt.append("C", font=fontName, fontSize=txtFontSize, fill=(0, 0, 0))
 startvariable=randint(0,1000)
 txt.fontVariations(wght=startvariable)
-txt.append("C", font="crispy", fontSize=txtFontSize, fill=(0, 0, 0))
+txt.append("H", font=fontName, fontSize=txtFontSize, fill=(0, 0, 0))
 startvariable=randint(0,1000)
 txt.fontVariations(wght=startvariable)
-txt.append("H", font="crispy", fontSize=txtFontSize, fill=(0, 0, 0))
+txt.append("A", font=fontName, fontSize=txtFontSize, fill=(0, 0, 0))
 startvariable=randint(0,1000)
 txt.fontVariations(wght=startvariable)
-txt.append("A", font="crispy", fontSize=txtFontSize, fill=(0, 0, 0))
+txt.append("R", font=fontName, fontSize=txtFontSize, fill=(0, 0, 0))
 startvariable=randint(0,1000)
 txt.fontVariations(wght=startvariable)
-txt.append("R", font="crispy", fontSize=txtFontSize, fill=(0, 0, 0))
+txt.append("G", font=fontName, fontSize=txtFontSize, fill=(0, 0, 0))
 startvariable=randint(0,1000)
 txt.fontVariations(wght=startvariable)
-txt.append("G", font="crispy", fontSize=txtFontSize, fill=(0, 0, 0))
+txt.append("E", font=fontName, fontSize=txtFontSize, fill=(0, 0, 0))
 startvariable=randint(0,1000)
 txt.fontVariations(wght=startvariable)
-txt.append("E", font="crispy", fontSize=txtFontSize, fill=(0, 0, 0))
-startvariable=randint(0,1000)
-txt.fontVariations(wght=startvariable)
-txt.append("S", font="crispy", fontSize=txtFontSize, fill=(0, 0, 0))
+txt.append("S", font=fontName, fontSize=txtFontSize, fill=(0, 0, 0))
+
+fill(0)
 
 text(txt, (CARDWIDTH/2, CARDHEIGHT/2-txtFontSize/3), align="center")
