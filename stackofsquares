@@ -1,0 +1,38 @@
+BG = 400
+
+NSQUARES = 50
+
+SQUARESIZE = 600
+
+NFRAMES = 96
+
+TOTALROTATION=18
+
+for frame in range(NFRAMES):
+    
+    newPage(BG,BG)
+    frameDuration(1/24)
+    
+    phase = 2 * pi * frame / NFRAMES #angle in radians
+    print sin(phase)
+    
+    #perfectly distribute rotation across frames 
+
+    STARTANGLE = TOTALROTATION * sin(phase)     
+    ENDANGLE = TOTALROTATION * sin(phase +0.5*pi)
+
+    fill(0)
+    stroke(1)
+    strokeWidth(10)
+    
+    #generate pile of squares
+    translate(BG/2, BG/2)
+    for i in range (NSQUARES+1):
+        SQUARESIZE = SQUARESIZE
+        f = i/NSQUARES
+        save()
+        rotate(STARTANGLE + f*(ENDANGLE-STARTANGLE))
+        rect(-SQUARESIZE/2, -SQUARESIZE/2, SQUARESIZE, SQUARESIZE)
+        scale(0.9, 0.9)
+        
+saveImage("stack.gif")
