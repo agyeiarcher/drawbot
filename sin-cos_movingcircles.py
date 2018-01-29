@@ -33,4 +33,4 @@ for frame in range(nframes):
         restore()
         
 
-saveImage("circles7.gif")
+saveImage("movingcircles.gif")
