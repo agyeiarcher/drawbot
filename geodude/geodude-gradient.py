@@ -1,5 +1,8 @@
+import sys
 import geocoder
 from webcolors import *
+
+sys.path.append("/")
 
 g=geocoder.ip('me')
 
@@ -27,3 +30,5 @@ linearGradient(
     )
 # draw a rectangle
 rect(0, 0, 1000, 1000)
+
+# saveImage("geodude.png")
