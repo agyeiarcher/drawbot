@@ -1,31 +1,29 @@
-import sys
-import geocoder
 from webcolors import *
+from geocoder import api
 
-sys.path.append("/modules")
+g=api.ipinfo('me')
 
-g=geocoder.ip('me')
-
-color1=str(abs(-5.897699))
-
-count=0
-while char!=".":
-    count+=1
-print(count)
-
-print(color1)
-color1=format(float(color1), ".5f")
-str(color1)
+color1=str(abs(g.lat))
+color1=format(float(color1))
+if len(str(color1))<=8:
+    color1=format(float(color1), ".6f")
+if len(str(color1))>8:
+    color1=format(float(color1), ".5f")
+color=str(color1)
 color1=color1.replace(".","")
 color1="#"+(hex(abs(int(color1)))[2:])
 color1=normalize_hex(color1)
 
-color2=22.418589
-print(color2)
-color2=format(float(color2), ".5f")
-str(color2)
+color2=str(abs(g.lng))
+color2=format(float(color2))
+if len(str(color2))<=8:
+    color2=format(float(color2), ".6f")
+if len(str(color2))>8:
+    color2=format(float(color2), ".5f")
+color=str(color2)
 color2=color2.replace(".","")
 color2="#"+(hex(abs(int(color2)))[2:])
+color2=normalize_hex(color2)
 
 print(color1, color2)
 
@@ -47,4 +45,4 @@ linearGradient(
 # draw a rectangle
 rect(0, 0, 1000, 1000)
 
-# saveImage("geodude.png")
+saveImage("geodude.png")
