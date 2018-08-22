@@ -1,12 +1,12 @@
 import sys
-import geocoder
+#import geocoder
 from webcolors import *
 
 sys.path.append("/")
 
-g=geocoder.ip('me')
+#g=geocoder.ipinfo('me')
 
-color1=str(abs(g.lat))
+color1=str(abs(40.687677))
 color1=format(float(color1))
 if len(str(color1))<=8:
     color1=format(float(color1), ".6f")
@@ -17,7 +17,7 @@ color1=color1.replace(".","")
 color1="#"+(hex(abs(int(color1)))[2:])
 color1=normalize_hex(color1)
 
-color2=str(abs(g.lng))
+color2=str(abs(73.970750))
 color2=format(float(color2))
 if len(str(color2))<=8:
     color2=format(float(color2), ".6f")
